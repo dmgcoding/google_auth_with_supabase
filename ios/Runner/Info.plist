@@ -28,6 +28,26 @@
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
+
+	<key>GIDClientID</key>
+	<string>363889841102-vvn138jlafamf738i6qujegglpks5399.apps.googleusercontent.com</string>
+	<key>GIDServerClientID</key>
+	<string>363889841102-4hfg371bgic9ttqhq9smrbn7stt1dehg.apps.googleusercontent.com</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.363889841102-vvn138jlafamf738i6qujegglpks5399</string>
+			</array>
+		</dict>
+	</array>
+
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>This app needs local network access to debug and communicate with other devices.</string>
+
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
