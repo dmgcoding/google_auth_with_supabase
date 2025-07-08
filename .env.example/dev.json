@@ -1,4 +1,6 @@
 {
     "SUPABASE_URL": "get this from the supabase dashboard",
-    "SUPABASE_KEY": "get this from the supabase dashboard"
+    "SUPABASE_KEY": "get this from the supabase dashboard",
+    "GCP_WEB_CLIENT_ID": "get this from google cloud console",
+    "GCP_IOS_CLIENT_ID": "get this from google cloud console"
 }

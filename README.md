@@ -1,6 +1,6 @@
 # notes_with_supabase
 
-This repo for the making a crud app with auth with supabase tutorial.
+This repo is for implementing google auth with supabase tutorial.
 
 ## Getting Started
 
@@ -8,7 +8,7 @@ Create a .env folder and copy dev.json file from .env.example/dev.json. Then upd
 
 ## Get the starter code
 
-If you want the starter code clone this repo and switch to 'app_ui_starter_code' branch and then remove the .git folder.
+If you want the starter code clone this repo and switch to 'starter_code' branch and then remove the .git folder.
 
 ## replace .vscode/launch.json with this content if you have issues running the app
 ````
