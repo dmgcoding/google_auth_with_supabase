@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 
 class SocialAuthBtn extends StatelessWidget {
-  const SocialAuthBtn({super.key});
+  const SocialAuthBtn({required this.ontap, super.key});
+  final Function ontap;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      onTap: () {
+        ontap();
+      },
       child: Container(
         width: double.infinity,
         height: 50,

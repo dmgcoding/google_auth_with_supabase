@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_auth_with_supabase/repos/auth_repo.dart';
 
 import '../widgets/note_card.dart';
 import 'add_note.dart';
@@ -64,7 +66,9 @@ class _NotesPageState extends State<NotesPage> {
                   ),
                 ),
                 IconButton(
-                  onPressed: () async {},
+                  onPressed: () async {
+                    context.read<AuthRepo>().signout();
+                  },
                   icon: Icon(Icons.logout, color: Colors.white),
                 ),
               ],
