@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:notes_with_supabase/pages/add_note.dart';
+
+import '../pages/add_note.dart';
 
 class NoteCard extends StatelessWidget {
   const NoteCard({super.key, required this.note});

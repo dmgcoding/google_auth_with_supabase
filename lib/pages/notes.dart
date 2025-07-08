@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:notes_with_supabase/pages/add_note.dart';
-import 'package:notes_with_supabase/repos/auth_repo.dart';
-import 'package:notes_with_supabase/repos/notes_repo.dart';
-import 'package:notes_with_supabase/widgets/note_card.dart';
+
+import '../widgets/note_card.dart';
+import 'add_note.dart';
 
 class NotesPage extends StatefulWidget {
   const NotesPage({super.key});
@@ -31,14 +29,6 @@ class _NotesPageState extends State<NotesPage> {
       'content': 'Feature ideas: dark mode, offline sync, sharing',
     },
   ];
-
-  late final noteStream;
-
-  @override
-  void initState() {
-    noteStream = context.read<NotesRepo>().getNoteStream();
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -74,47 +64,29 @@ class _NotesPageState extends State<NotesPage> {
                   ),
                 ),
                 IconButton(
-                  onPressed: () async {
-                    context.read<AuthRepo>().signout();
-                  },
+                  onPressed: () async {},
                   icon: Icon(Icons.logout, color: Colors.white),
                 ),
               ],
             ),
             const SizedBox(height: 0),
             Expanded(
-              child: StreamBuilder(
-                stream: noteStream,
-                builder: (cxt, snap) {
-                  if (snap.hasError) {
-                    return const Center(
-                      child: Text(
-                        'Some error occured fetching notes',
-                        style: TextStyle(fontSize: 16, color: Colors.white70),
-                        textAlign: TextAlign.center,
-                      ),
-                    );
-                  }
-                  if (snap.data == null) return Container();
-                  final data = snap.data as List<Map<String, dynamic>>;
-                  if (data.isEmpty) {
-                    return const Center(
+              child: notes.isEmpty
+                  ? const Center(
                       child: Text(
                         'No notes yet. Tap the + button to add one!',
                         style: TextStyle(fontSize: 16, color: Colors.white70),
                         textAlign: TextAlign.center,
                       ),
-                    );
-                  }
-                  return ListView.builder(
-                    itemCount: data.length,
-                    itemBuilder: (context, index) {
-                      final note = data[index];
-                      return NoteCard(note: note);
-                    },
-                  );
-                },
-              ),
+                    )
+                  : ListView.builder(
+                      itemCount: notes.length,
+                      itemBuilder: (context, index) {
+                        final note = notes[index];
+                        return NoteCard(note: note);
+                      },
+                    ),
+
               // ch
             ),
           ],

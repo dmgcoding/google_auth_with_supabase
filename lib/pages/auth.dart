@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:notes_with_supabase/widgets/signin_form.dart';
-import 'package:notes_with_supabase/widgets/signup_form.dart';
+
+import '../widgets/google_btn.dart';
+import '../widgets/signin_form.dart';
+import '../widgets/signup_form.dart';
 
 class AuthPage extends StatefulWidget {
   const AuthPage({super.key});
@@ -103,6 +105,8 @@ class _AuthPageState extends State<AuthPage> {
                         ),
                       ),
                     ),
+                    const SizedBox(height: 40),
+                    SocialAuthBtn(),
                   ],
                 ),
               ),
