@@ -10,7 +10,7 @@ Create a .env folder and copy dev.json file from .env.example/dev.json. Then upd
 
 If you want the starter code clone this repo and switch to 'app_ui_starter_code' branch and then remove the .git folder.
 
-## replace .vscode/launch.json with this content
+## replace .vscode/launch.json with this content if you have issues running the app
 ````
 {
     // Use IntelliSense to learn about possible attributes.

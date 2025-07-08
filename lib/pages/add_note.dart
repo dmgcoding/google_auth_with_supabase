@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:notes_with_supabase/repos/notes_repo.dart';
-import 'package:notes_with_supabase/widgets/btn.dart';
+
+import '../widgets/btn.dart';
 
 class AddNotePage extends StatefulWidget {
   final String? initialTitle;
@@ -38,50 +37,6 @@ class _AddNotePageState extends State<AddNotePage> {
     _titleController.dispose();
     _contentController.dispose();
     super.dispose();
-  }
-
-  void submit() {
-    if (widget.id != null) {
-      return updateNote();
-    }
-    return createNote();
-  }
-
-  void createNote() async {
-    if (_titleController.text.isEmpty || _contentController.text.isEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text("title and content can't be empty")),
-      );
-      return;
-    }
-    try {
-      await context.read<NotesRepo>().addNote(
-        _titleController.text,
-        _contentController.text,
-      );
-      Navigator.pop(context);
-    } catch (e) {
-      print(e);
-    }
-  }
-
-  void updateNote() async {
-    if (_titleController.text.isEmpty || _contentController.text.isEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text("title and content can't be empty")),
-      );
-      return;
-    }
-    try {
-      await context.read<NotesRepo>().updateNote(
-        widget.id!,
-        _titleController.text,
-        _contentController.text,
-      );
-      Navigator.pop(context);
-    } catch (e) {
-      print(e);
-    }
   }
 
   @override
@@ -158,7 +113,7 @@ class _AddNotePageState extends State<AddNotePage> {
 
                         Center(
                           child: CustomButton(
-                            ontap: submit,
+                            ontap: null,
                             text: widget.id != null
                                 ? 'Update Note'
                                 : 'Save Note',

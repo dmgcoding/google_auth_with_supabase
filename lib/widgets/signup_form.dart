@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:notes_with_supabase/repos/auth_repo.dart';
-import 'package:notes_with_supabase/widgets/btn.dart';
+
+import 'btn.dart';
 
 class SignupForm extends StatefulWidget {
   const SignupForm({super.key});

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:notes_with_supabase/widgets/btn.dart';
+
+import 'btn.dart';
 
 class SigninForm extends StatefulWidget {
   const SigninForm({super.key});
