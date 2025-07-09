@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_auth_with_supabase/repos/auth_repo.dart';
 
 import '../widgets/google_btn.dart';
 import '../widgets/signin_form.dart';
@@ -13,6 +15,16 @@ class AuthPage extends StatefulWidget {
 
 class _AuthPageState extends State<AuthPage> {
   bool isSigningMode = true;
+
+  void gSignin() async {
+    try {
+      final authRepo = context.read<AuthRepo>();
+      await authRepo.googleSignin();
+    } catch (e) {
+      print(e);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -106,7 +118,7 @@ class _AuthPageState extends State<AuthPage> {
                       ),
                     ),
                     const SizedBox(height: 40),
-                    SocialAuthBtn(),
+                    SocialAuthBtn(ontap: gSignin),
                   ],
                 ),
               ),
